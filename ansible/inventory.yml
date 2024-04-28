@@ -1,0 +1,48 @@
+all:
+  service:
+    firewall:
+      hosts:
+        fw:
+    domain:
+      hosts:
+        dc01-team:
+        dc02-team:
+    management:
+      hosts:
+        mgmt01:
+        mgmt02:
+    dhcp:
+      hosts:
+        dhcp1-team:
+        dhcp2-team:
+    workstation:
+      hosts:
+        w01-team:
+        w02-team:
+    utility:
+      hosts:
+        util-team:
+  os:
+    windows:
+      hosts:
+        dc01-team:
+        dc02-team:
+        mgmt01:
+        w01-team:
+        w02-team:
+      vars:
+        ansible_shell_type: powershell
+    linux:
+      debian:
+        hosts:
+          mgmt02:
+      rhel:
+        hosts:
+          dhcp1-team:
+          dhcp2-team:
+          util-team:
+    bsd:
+      hosts:
+        fw:
+
+
