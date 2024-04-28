@@ -1,0 +1,28 @@
+---
+- name: Test Connectivity with linux hosts
+  hosts:
+    - util-team
+    - docker01-team
+    - mgmt02-team
+    - dhcp1-team
+    - dhcp2-team
+  remote_user: deployer
+  tasks:
+    - name: Run whoami linux
+      ansible.builtin.shell: whoami
+
+
+- name: Test Connectivity with windows hosts
+  hosts:
+    - dc01-team
+    - dc02-team
+    - mgmt01-team
+    - dfs01-team
+    - dfs02-team
+  remote_user: deployer@team.local
+  tasks:
+    - name: Run whoami windows
+      ansible.windows.win_powershell:
+        script: |
+          whoami
+

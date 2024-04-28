@@ -1,0 +1,12 @@
+---
+- name: Create a new domain user
+  hosts: mgmt01-team
+
+  tasks:
+    - name: Add col-maet user to domain
+      microsoft.ad.user:
+        identity: col-maet
+        password: tempPass!1!1
+        state: present
+        password_expired: true
+        
