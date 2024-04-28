@@ -1,0 +1,26 @@
+---
+- name: Create debian user and install ZSH on remote system
+  hosts: docker01-team
+  become: true
+
+  tasks:
+    - name: Install zsh
+      ansible.builtin.apt:
+        name: zsh
+        state: present
+    - name: Install libuser
+      ansible.builtin.apt:
+        name: libuser
+        state: present
+    - name: 'Add the "col-maet" user'
+      ansible.builtin.user:
+        name: col-maet
+        shell: /bin/zsh
+        local: true
+        append: yes
+    - name: Modify Authorized Users
+      ansible.posix.authorized_key:
+        user: col-maet
+        state: present
+        key: https://raw.githubusercontent.com/wswearingin/sys265-final/main/pub-keys/mgmt02dep.pub
+

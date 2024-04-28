@@ -1,0 +1,14 @@
+- name: Add new Local Linux User
+  hosts: dhcp 
+
+  tasks:
+    - name: Add user 'AnsibleUser'
+      user:
+        name: AnsibleUser
+        groups: wheel
+        append: yes
+        shell: /bin/bash
+        password: '3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+        generate_ssh_key: yes
+        ssh_key_file: '/home/AnsibleUser/.ssh/id_rsa'
+      become: true

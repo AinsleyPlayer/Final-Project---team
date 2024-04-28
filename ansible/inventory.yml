@@ -1,0 +1,38 @@
+docker:
+  hosts:
+    docker01-team:
+firewall:
+    hosts:
+      fw:
+domain:
+  hosts:
+    dc01-team:
+    dc02-team:
+management:
+  hosts:
+    mgmt01-team:
+    mgmt02-team:
+dhcp:
+  hosts:
+    dhcp1-team:
+    dhcp2-team:
+workstation:
+  hosts:
+    w01-team:
+    w02-team:
+utility:
+  hosts:
+    util-team:
+windows:
+  hosts:
+    dc01-team:
+    dc02-team:
+    mgmt01-team:
+    w01-team:
+    w02-team:
+    dfs01-team:
+    dfs02-team:
+  vars:
+    ansible_shell_type: powershell
+    remote_tmp: 'C:\Users\ans_user\Tmp'
+    shell_type: powershell
